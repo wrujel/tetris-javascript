@@ -114,7 +114,12 @@ function gameOver () {
 
 // Listen start game
 const $section = document.querySelector('section')
+const $controls = document.querySelector('.controls')
 $section.addEventListener('click', () => {
+  // start game loop
   update()
+  // remove start overlay
   $section.remove()
+  // show controls (they are hidden by default)
+  if ($controls) $controls.hidden = false
 })

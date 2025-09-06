@@ -25,17 +25,100 @@ body {
 section {
   position: absolute;
   background: black;
-  width: 100vw;
   height: 100vh;
   top: 0;
   inset: 0;
   display: grid;
   font-size: 48px;
   place-content: center;
+  min-width: 550px;
 }
 
 .panel {
   display: flex;
   justify-content: space-between;
+}
 
+.controls {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  max-width: 180px;
+}
+
+.controls h3 {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+}
+
+.controls ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.controls li {
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+    "Courier New", monospace;
+}
+
+@media (max-width: 750px) {
+  .controls {
+    left: 50%;
+    right: auto;
+    bottom: 12px;
+    transform: translateX(-50%);
+    max-width: none;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .controls h3 {
+    display: none;
+  }
+
+  .controls ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    max-width: 90vw;
+  }
+
+  .controls li {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-size: 13px;
+    flex: 0 1 auto;
+  }
+}
+
+.controls[hidden] {
+  display: none !important;
 }
