@@ -2,7 +2,7 @@
 [status-link]: https://github.com/wrujel/monitor-repos
 [tests-link]: https://github.com/wrujel/monitor-tests
 
-[demo-link]: https://tetris-javascript-wrujel.vercel.app/
+[demo-link]: https://tetris-javascript-pi.vercel.app
 [status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Ftetris-javascript.json
 [deploy]: https://img.shields.io/github/deployments/wrujel/tetris-javascript/production?style=for-the-badge&label=Deploy
 [tests]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-tests%2Fmain%2Fdata%2Ftetris-javascript.json
