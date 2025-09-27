@@ -40,7 +40,7 @@
 <div align='center'>
   A modern implementation of the classic Tetris game, built with JavaScript, powered by Vite, and deployed on Vercel.
 
-  [Demo](https://tetris-javascript-wrujel.vercel.app/) · [Report issue](/issues) · [Suggest something](/issues)
+  [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 </div>
 
 ## Table of Contents
