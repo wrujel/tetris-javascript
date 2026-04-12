@@ -1,17 +1,7 @@
-[demo]: https://img.shields.io/badge/🚀%20Live%20Demo-000000?style=for-the-badge&&logoColor=white&color=0a6bdb
-[status-link]: https://github.com/wrujel/monitor-repos
-[tests-link]: https://github.com/wrujel/monitor-tests
-
-[demo-link]: https://tetris-javascript-pi.vercel.app
-[status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Ftetris-javascript.json
-[deploy]: https://img.shields.io/github/deployments/wrujel/tetris-javascript/production?style=for-the-badge&label=Deploy
-[tests]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-tests%2Fmain%2Fdata%2Ftetris-javascript.json
-
 <div align='center'>
 
   [![demo][demo]][demo-link]
   [![status][status]][status-link]
-  [![deploy][deploy]](/)
   [![test][tests]][tests-link]
 
 </div>
@@ -19,150 +9,158 @@
 <div align='center'>
   <a href='/'>
     <img
-      src='/images/screenshot.png'
+      src='images/screenshot.png'
       alt='Screenshot of the app'
+      width='100%'
     />
   </a>
 </div>
 
 <div align='center'>
-  <h1>Tetris App - JavaScript</h1>
+  <h1>Tetris Game with JavaScript</h1>
 </div>
 
 <div align='center'>
-  
+
+  [![HTML5][html]][html-link]
+  [![CSS3][css]][css-link]
   [![JavaScript][javascript]][javascript-link]
   [![Vite][vite]][vite-link]
-  [![Vercel][vercel]][vercel-link]
 
 </div>
 
 <div align='center'>
-  A modern implementation of the classic Tetris game, built with JavaScript, powered by Vite, and deployed on Vercel.
+  Classic Tetris game built with vanilla JavaScript, HTML5 Canvas, and CSS. Features score tracking, level progression, piece rotation, and keyboard controls.
 
-  [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
+  [Demo]({{DEMO_URL}}) · [Report issue](/issues) · [Suggest something](/issues)
 </div>
 
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
 - [Features](#features)
-- [Controls](#controls)
-- [Technologies Used](#technologies-used)
-- [Installation and Setup](#installation-and-setup)
-- [Deployment](#deployment)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running locally](#running-locally)
+  - [Build](#build)
+- [Project Structure](#project-structure)
 - [Demo](#demo)
-- [Contribute](#contribute)
+- [Authors](#authors)
+- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
 
-- Classic Tetris gameplay mechanics.
-- Responsive design – play on both mobile and desktop.
-- Leaderboard to track high scores.
-- Smooth animations and sound effects.
-- Dark mode for night-time playing.
+- [x] Classic Tetris gameplay mechanics
+- [x] Canvas-based rendering using HTML5 Canvas API
+- [x] Keyboard controls (arrow keys for movement and rotation)
+- [x] Score tracking system (+10 points per row cleared)
+- [x] Level progression with increasing speed
+- [x] Piece rotation with collision validation
+- [x] Row clearing when a line is completed
+- [x] Game over detection
+- [x] Start screen overlay
+- [x] Responsive controls panel
+- [x] Built with Vite for fast development and HMR
+- [x] ESLint with Standard style
 
-## Controls
+## Tech Stack
 
-- **Arrow Keys**:
-  - **Left Arrow**: Move the tetromino left.
-  - **Right Arrow**: Move the tetromino right.
-  - **Down Arrow**: Soft drop (speeds up the tetromino's descent).
-  - **Up Arrow**: Rotate the tetromino clockwise.
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Vite](https://vite.dev/)
 
-## Technologies Used
+## Getting Started
 
-- **JavaScript** – The core logic of the game.
-- **Vite** – A build tool that offers a faster and leaner development experience for frontend projects.
-- **Vercel** – For continuous deployment and hosting of the app.
+### Prerequisites
 
-## Installation and Setup
+- Node.js 16+
+- npm, yarn, pnpm, or bun
 
-1. **Clone the Repository**
+### Installation
 
 ```bash
 git clone https://github.com/wrujel/tetris-javascript.git
 cd tetris-javascript
-```
-
-2. **Install Dependencies**
-
-Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed. Then:
-
-```bash
 npm install
 ```
 
-3. **Run Locally**
+### Running locally
 
 ```bash
 npm run dev
 ```
 
-Visit `http://localhost:3000` in your browser to play the game.
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
-## Deployment
+### Build
 
-This project is deployed on Vercel. If you wish to deploy your own version:
+```bash
+npm run build
+```
 
-1. Fork and clone the repository.
-2. [Set up Vercel](https://vercel.com/) and link your GitHub account.
-3. Create a new project on Vercel and link it to your Tetris app repository.
-4. Vercel will automatically build and deploy the app. You can then access your live site from the provided URL.
+## Project Structure
+
+```
+/
+├── images/
+│   └── screenshot.png
+├── utils/
+│   ├── canvas.js
+│   ├── constants.js
+│   └── pieces.js
+├── index.html
+├── main.js
+├── style.css
+└── package.json
+```
 
 ## Demo
 
-Experience the game here:
-  
+You can check out the demo:
+
 [![Demo][demo]][demo-link]
 
-## Contribute
+## Authors
 
-Want to contribute? Great! Fork the repo, create a new branch, make your changes and submit a pull request.
+- [@wrujel](https://github.com/wrujel) — Creator & maintainer
+
+## Contributing
+
+Contributions are welcome! If you have suggestions or find bugs, please open an issue or submit a pull request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is open-source and available under the MIT License. Feel free to use it as a reference for your own projects, or contribute to make it better!
+This project is not currently licensed.
 
 ---
 
-**Made with ❤️ by [wrujel](https://github.com/wrujel)**.
-
-
-
 <!-- Badges -->
-[nextjs]: https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js
-[typescript]: https://img.shields.io/badge/Typescript-007ACC?style=for-the-badge&logo=typescript&logoColor=white&color=blue
-[tailwindcss]: https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-[react]: https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white
-[lodash]: https://img.shields.io/badge/Lodash-gray?style=for-the-badge&logo=lodash
-[next-auth]: https://img.shields.io/badge/Next--Auth-black?style=for-the-badge&logo=next.js
-[prisma]: https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white
-[axios]: https://img.shields.io/badge/Axios-56A7F7?style=for-the-badge&logo=axios&logoColor=white
-[react-icons]: https://img.shields.io/badge/React--Icons-61DAFB?style=for-the-badge&logo=react&logoColor=white
-[swr]: https://img.shields.io/badge/SWR-black?style=for-the-badge&logo=next.js
-[zustand]: https://img.shields.io/badge/Zustand-gray?style=for-the-badge&logo=npm
-[react-player]: https://img.shields.io/badge/React--Player-gray?style=for-the-badge&logo=npm
-[mongodb]: https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white
-[vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
-[vite]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white
+[html]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+[css]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white
 [javascript]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[vite]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white
 
-<!-- Badges links -->
-[nextjs-link]: https://nextjs.org/
-[typescript-link]: https://www.typescriptlang.org/
-[tailwindcss-link]: https://tailwindcss.com/
-[react-link]: https://reactjs.org/
-[lodash-link]: https://lodash.com/
-[next-auth-link]: https://next-auth.js.org/
-[prisma-link]: https://www.prisma.io/
-[axios-link]: https://axios-http.com/
-[react-icons-link]: https://react-icons.github.io/react-icons/
-[swr-link]: https://swr.vercel.app/
-[zustand-link]: https://zustand.surge.sh/
-[react-player-link]: https://www.npmjs.com/package/react-player
-[mongodb-link]: https://www.mongodb.com/
-[vercel-link]: https://vercel.com/
-[vite-link]: https://vitejs.dev/
+<!-- Badge links -->
+[html-link]: https://developer.mozilla.org/en-US/docs/Web/HTML
+[css-link]: https://developer.mozilla.org/en-US/docs/Web/CSS
 [javascript-link]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[vite-link]: https://vite.dev/
+
+<!-- Status/Demo badges -->
+[demo]: https://img.shields.io/badge/🚀%20Live%20Demo-000000?style=for-the-badge&&logoColor=white&color=0a6bdb
+[status-link]: https://github.com/wrujel/monitor-repos
+[tests-link]: https://github.com/wrujel/monitor-tests
+
+[demo-link]: https://tetris-javascript-pi.vercel.app
+[status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Ftetris-javascript.json
+[tests]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-tests%2Fmain%2Fdata%2Ftetris-javascript.json
