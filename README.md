@@ -9,7 +9,7 @@
 <div align='center'>
   <a href='/'>
     <img
-      src='images/screenshot.png'
+      src='screenshot.webp'
       alt='Screenshot of the app'
       width='100%'
     />
@@ -32,7 +32,7 @@
 <div align='center'>
   Classic Tetris game built with vanilla JavaScript, HTML5 Canvas, and CSS. Features score tracking, level progression, piece rotation, and keyboard controls.
 
-  [Demo]({{DEMO_URL}}) · [Report issue](/issues) · [Suggest something](/issues)
+  [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 </div>
 
 ## Table of Contents
