@@ -3,26 +3,164 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tetris - Javascript</title>
+    <title>Tetris - Neon Arcade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <div class="horizon" aria-hidden="true"></div>
+    <div class="bg-pieces" aria-hidden="true">
+      <span class="bg-piece p-t" style="--x: 6; --s: 1.6; --d: 48s; --dl: -9s; --tilt: -10deg; --o: 0.14; --c: var(--magenta)"></span>
+      <span class="bg-piece p-i" style="--x: 18; --s: 1; --d: 62s; --dl: -31s; --tilt: 6deg; --o: 0.11; --c: var(--cyan)"></span>
+      <span class="bg-piece p-o" style="--x: 32; --s: 2.2; --d: 74s; --dl: -52s; --tilt: 0deg; --o: 0.09; --c: var(--yellow); filter: blur(1px)"></span>
+      <span class="bg-piece p-l" style="--x: 74; --s: 1.4; --d: 52s; --dl: -18s; --tilt: 12deg; --o: 0.13; --c: var(--orange)"></span>
+      <span class="bg-piece p-s" style="--x: 85; --s: 1; --d: 66s; --dl: -44s; --tilt: -6deg; --o: 0.11; --c: var(--green)"></span>
+      <span class="bg-piece p-t" style="--x: 92; --s: 2; --d: 80s; --dl: -60s; --tilt: 8deg; --o: 0.08; --c: var(--purple); filter: blur(2px)"></span>
+      <span class="bg-piece p-i" style="--x: 55; --s: 1.2; --d: 58s; --dl: -25s; --tilt: -90deg; --o: 0.1; --c: var(--cyan)"></span>
+    </div>
+
+    <nav id="mode-bar" aria-label="Game mode">
+      <button class="mode-card doom" id="card-versus">
+        <span class="mode-name">Vs AI</span>
+        <span class="mode-desc">Doom · ×10 · 3:00</span>
+      </button>
+      <button class="mode-card" id="card-solo">
+        <span class="mode-name">Solo</span>
+        <span class="mode-desc">Classic arcade</span>
+      </button>
+    </nav>
+
     <div id="app">
-      <section>Start Game</section>
-      <canvas></canvas>
+      <aside class="ai-side" hidden>
+        <div class="hud-card ai-label">
+          <span class="hud-label">AI · Doom</span>
+        </div>
+        <div class="stage ai-stage">
+          <canvas id="ai-board"></canvas>
+          <div class="scanlines"></div>
+          <div class="vignette"></div>
+        </div>
+      </aside>
+
+      <aside class="match" hidden>
+        <div class="hud-card timer-card" id="timer-card">
+          <span class="hud-label">Time</span>
+          <span class="hud-value" id="timer">3:00</span>
+        </div>
+        <div class="hud-card you-card">
+          <span class="hud-label">You</span>
+          <span class="hud-value" id="you-score">0</span>
+          <span class="hud-label sub">Lines</span>
+          <span class="hud-value sub" id="you-lines">0</span>
+        </div>
+        <span class="versus-mark">VS</span>
+        <div class="hud-card ai-card">
+          <span class="hud-label">AI</span>
+          <span class="hud-value" id="ai-score">0</span>
+          <span class="hud-label sub">Lines</span>
+          <span class="hud-value sub" id="ai-lines">0</span>
+        </div>
+        <div class="hud-card">
+          <span class="hud-label">Next</span>
+          <canvas id="next-vs"></canvas>
+        </div>
+      </aside>
+
+      <aside class="hud hud-left">
+        <div class="hud-card">
+          <span class="hud-label">Score</span>
+          <span class="hud-value" id="score">0</span>
+          <span class="hud-label sub">Best</span>
+          <span class="hud-value sub" id="best">0</span>
+        </div>
+        <div class="hud-card">
+          <span class="hud-label">Level</span>
+          <span class="hud-value" id="level">1</span>
+        </div>
+        <div class="hud-card">
+          <span class="hud-label">Lines</span>
+          <span class="hud-value" id="lines">0</span>
+        </div>
+      </aside>
+
+      <aside class="player-side">
+        <div class="hud-card you-label"><span class="hud-label">You</span></div>
+        <div class="stage" id="player-stage">
+        <canvas id="board"></canvas>
+        <div class="scanlines"></div>
+        <div class="vignette"></div>
+
+        <section id="start-screen" class="overlay">
+          <h1 class="title">TETRIS</h1>
+          <p class="subtitle">// neon arcade</p>
+          <p class="cta">Choose a mode above</p>
+        </section>
+
+        <section id="pause-screen" class="overlay" hidden>
+          <h2 class="title title-sm">PAUSED</h2>
+          <p class="cta">Esc to resume</p>
+        </section>
+
+        <section id="gameover-screen" class="overlay" hidden>
+          <h2 class="title title-sm danger">GAME OVER</h2>
+          <p id="new-best" class="new-best" hidden>New best!</p>
+          <div class="stats">
+            <p>Score <strong id="final-score">0</strong></p>
+            <p>Level <strong id="final-level">1</strong></p>
+            <p>Best <strong id="final-best">0</strong></p>
+          </div>
+          <div class="btn-row">
+            <button id="restart" class="btn">Restart</button>
+            <button id="menu-solo" class="btn ghost-btn">Menu</button>
+          </div>
+        </section>
+
+        <section id="result-screen" class="overlay" hidden>
+          <h2 class="title title-sm" id="result-title">DEFEAT</h2>
+          <div class="stats">
+            <p>You <strong id="result-you">0</strong></p>
+            <p>AI <strong id="result-ai">0</strong></p>
+          </div>
+          <div class="btn-row">
+            <button id="rematch" class="btn">Rematch</button>
+            <button id="menu" class="btn ghost-btn">Menu</button>
+          </div>
+        </section>
+        </div>
+      </aside>
+
+      <aside class="hud hud-right">
+        <div class="hud-card">
+          <span class="hud-label">Next</span>
+          <canvas id="next"></canvas>
+        </div>
+        <div class="hud-card">
+          <span class="hud-label">Hold</span>
+          <canvas id="hold"></canvas>
+        </div>
+        <div class="hud-card controls" aria-label="Game controls">
+          <h3>Controls</h3>
+          <ul>
+            <li><kbd>◀</kbd><kbd>▶</kbd> Move</li>
+            <li><kbd>▼</kbd> Soft drop</li>
+            <li><kbd>▲</kbd> Rotate</li>
+            <li><kbd>Space</kbd> Hard drop</li>
+            <li><kbd>C</kbd> Hold</li>
+            <li><kbd>Esc</kbd> Pause</li>
+          </ul>
+        </div>
+      </aside>
     </div>
-    <div class="panel">
-      <strong>Score: <span id="score"></span></strong>
-      <strong>Level: <span id="level"></span></strong>
-    </div>
-    <div class="controls" aria-label="Game controls" hidden>
-      <h3>Controls</h3>
-      <ul>
-        <li><kbd>◀</kbd> Move left</li>
-        <li><kbd>▶</kbd> Move right</li>
-        <li><kbd>▼</kbd> Soft drop</li>
-        <li><kbd>▲</kbd> Rotate</li>
-      </ul>
-    </div>
+
+    <section id="countdown-overlay" hidden>
+      <p class="doom-message" id="doom-message">Prepare to suffer</p>
+      <span id="countdown-number">3</span>
+    </section>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
