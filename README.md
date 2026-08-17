@@ -30,7 +30,7 @@
 </div>
 
 <div align='center'>
-  Classic Tetris game built with vanilla JavaScript, HTML5 Canvas, and CSS. Features score tracking, level progression, piece rotation, and keyboard controls.
+  Neon arcade Tetris built with vanilla JavaScript and HTML5 Canvas. Play a classic solo run or race a Dellacherie-driven AI in Doom mode — ×10 gravity, a shared piece feed, and a three-minute clock.
 
   [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 </div>
@@ -53,16 +53,24 @@
 
 ## Features
 
-- [x] Classic Tetris gameplay mechanics
-- [x] Canvas-based rendering using HTML5 Canvas API
-- [x] Keyboard controls (arrow keys for movement and rotation)
-- [x] Score tracking system (+10 points per row cleared)
-- [x] Level progression with increasing speed
-- [x] Piece rotation with collision validation
-- [x] Row clearing when a line is completed
-- [x] Game over detection
-- [x] Start screen overlay
-- [x] Responsive controls panel
+- [x] Two modes — Solo classic arcade and Vs AI "Doom"
+- [x] Doom mode runs at ×10 gravity with a shortened lock delay and a 3:00 match clock
+- [x] AI opponent driven by the Dellacherie evaluation — landing height, rows eliminated, row/column transitions, holes and cumulative wells
+- [x] Both boards are fed the same piece sequence, so a doom match is a fair race
+- [x] 7-bag randomizer with a 3-piece next queue
+- [x] Hold piece, locked out until the next piece locks (off in doom mode)
+- [x] Ghost piece landing indicator
+- [x] Wall kicks on rotation, plus a lock delay with capped resets
+- [x] DAS/ARR auto-shift while a movement key is held
+- [x] Scored hard drop and soft drop
+- [x] Combo, back-to-back Tetris and level-scaled line scoring
+- [x] Level up every 10 lines, with the best score persisted in localStorage
+- [x] Keyboard controls — arrows to move and rotate, Space to hard drop, C to hold, Esc to pause
+- [x] Neon arcade UI with CRT scanlines, vignette and a drifting tetromino backdrop
+- [x] Particle line clears, screen shake, and slow motion on a Tetris
+- [x] Board-clear explosion on game over
+- [x] Motion effects respect `prefers-reduced-motion`
+- [x] Canvas-based rendering using the HTML5 Canvas API
 - [x] Built with Vite for fast development and HMR
 - [x] ESLint with Standard style
 
@@ -109,8 +117,11 @@ npm run build
 ├── images/
 │   └── screenshot.png
 ├── utils/
+│   ├── ai.js
 │   ├── canvas.js
 │   ├── constants.js
+│   ├── effects.js
+│   ├── engine.js
 │   └── pieces.js
 ├── index.html
 ├── main.js
