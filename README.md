@@ -10,7 +10,7 @@
   <a href='/'>
     <img
       src='screenshot.webp'
-      alt='Screenshot of the app'
+      alt='Neon arcade Tetris with score, level and lines panels, next-piece and hold previews, a controls key legend, and Solo or VS AI mode buttons.'
       width='100%'
     />
   </a>
@@ -30,7 +30,7 @@
 </div>
 
 <div align='center'>
-  Neon arcade Tetris built with vanilla JavaScript and HTML5 Canvas. Play a classic solo run or race a Dellacherie-driven AI in Doom mode — ×10 gravity, a shared piece feed, and a three-minute clock.
+  Neon arcade Tetris built with vanilla JavaScript and HTML5 Canvas. Play classic solo with a 7-bag randomizer, hold, ghost piece, wall kicks and DAS auto-shift, or take on Doom mode — a three-minute race against a Dellacherie-driven AI at ×10 gravity, with both boards fed exactly the same piece sequence.
 
   [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 </div>
